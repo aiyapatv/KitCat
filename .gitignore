@@ -1,0 +1,13 @@
+# Godot 4+
+.godot/
+
+# Imported files
+.import/
+*.import
+
+# Mono / C# generated files (if applicable)
+.mono/
+
+# Export files
+export/
+export.cfg
