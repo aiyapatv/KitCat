@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4cpu47rx2a7u"]
+
+[ext_resource type="PackedScene" uid="uid://bfrh5x02cgppl" path="res://scene/maps/Kitchen.tscn" id="1_4w1oj"]
+[ext_resource type="Script" uid="uid://cgd4kfd3isfon" path="res://scene/levels/level_1.gd" id="1_qprrc"]
+[ext_resource type="PackedScene" uid="uid://cec7t1s02uxuf" path="res://scene/tools/CameraBounds.tscn" id="2_qprrc"]
+[ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="3_coh3v"]
+[ext_resource type="PackedScene" uid="uid://c0of7w20pboww" path="res://scene/items/CabinetLeft.tscn" id="5_coh3v"]
+
+[node name="Level1" type="Node2D" unique_id=404730695]
+script = ExtResource("1_qprrc")
+
+[node name="Kitchen" parent="." unique_id=1002516262 instance=ExtResource("1_4w1oj")]
+
+[node name="CameraBounds" parent="." unique_id=1952891714 instance=ExtResource("2_qprrc")]
+right = 240
+bottom = 208
+
+[node name="Cabinet" parent="." unique_id=836106672 instance=ExtResource("5_coh3v")]
+position = Vector2(96, 72)
+
+[node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("3_coh3v")]
+position = Vector2(29, 165)

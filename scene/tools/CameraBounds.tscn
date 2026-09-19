@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cec7t1s02uxuf"]
+
+[ext_resource type="Script" uid="uid://c18umlsjkleo1" path="res://scene/tools/camera_bounds.gd" id="1_xpyp8"]
+
+[node name="CameraBounds" type="Node2D" unique_id=1952891714]
+script = ExtResource("1_xpyp8")

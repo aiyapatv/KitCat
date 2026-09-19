@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cwb38li0jgntf"]
+
+[ext_resource type="Script" uid="uid://c17jxi2ra27y1" path="res://scripts/items/yarn.gd" id="1_ijv8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+
+[node name="Yarn" type="Node2D" unique_id=424727362]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=679694702]
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=720147692]
+script = ExtResource("1_ijv8v")
+interaction_text = "Yarn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1743158030]
+shape = SubResource("RectangleShape2D_htemk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=81164605]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2

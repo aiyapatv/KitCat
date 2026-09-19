@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dg4jaweogfqvf"]
+
+[ext_resource type="PackedScene" uid="uid://c6mdbaeeujuhq" path="res://scene/characters/SideScrollCat.tscn" id="1_cp0is"]
+[ext_resource type="PackedScene" uid="uid://bjqha41ycinbp" path="res://scene/maps/KitchenMinigame.tscn" id="2_hmypb"]
+
+[node name="Level1Minigame" type="Node2D" unique_id=779256530]
+
+[node name="SideScrollCat" parent="." unique_id=870438220 instance=ExtResource("1_cp0is")]
+
+[node name="KitchenMinigame" parent="." unique_id=1978740234 instance=ExtResource("2_hmypb")]

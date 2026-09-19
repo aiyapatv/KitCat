@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://rixonjursi77"]
+
+[ext_resource type="PackedScene" uid="uid://bfrh5x02cgppl" path="res://scene/maps/Kitchen.tscn" id="1_brvut"]
+[ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="3_brvut"]
+[ext_resource type="PackedScene" uid="uid://cwb38li0jgntf" path="res://scene/items/Yarn.tscn" id="3_wp4xf"]
+
+[node name="Main" type="Node2D" unique_id=1308980471]
+
+[node name="Kitchen" parent="." unique_id=1002516262 instance=ExtResource("1_brvut")]
+
+[node name="Yarn" parent="." unique_id=424727362 instance=ExtResource("3_wp4xf")]
+position = Vector2(59, 33)
+
+[node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("3_brvut")]
+position = Vector2(225.0448, 121.60397)
