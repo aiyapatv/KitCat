@@ -10,9 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://bebr46dsoi3r8" path="res://scene/items/Toy.tscn" id="6_7ylwt"]
 [ext_resource type="PackedScene" uid="uid://cwb38li0jgntf" path="res://scene/items/Yarn.tscn" id="7_h3m3o"]
 [ext_resource type="TileSet" uid="uid://dja6xc8eercm2" path="res://tileset/key.tres" id="10_814k1"]
+[ext_resource type="PackedScene" uid="uid://dgii0jkgo5cgi" path="res://scene/game/Rhythm.tscn" id="11_22t80"]
+[ext_resource type="Script" uid="uid://geurodyeivvp" path="res://scene/tools/change-scene.gd" id="12_lupnh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmpqx"]
 radius = 35.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ylwt"]
+size = Vector2(34, 21)
 
 [node name="Level2" type="Node2D" unique_id=373086184]
 script = ExtResource("1_shnd0")
@@ -34,6 +39,11 @@ position = Vector2(187, 121)
 [node name="Yarn" parent="." unique_id=214589822 instance=ExtResource("7_h3m3o")]
 position = Vector2(80, 116)
 
+[node name="UpArrow" type="TileMapLayer" parent="." unique_id=1141100666]
+scale = Vector2(0.125, 0.125)
+tile_map_data = PackedByteArray("AABsACsAAAAZACgAAABsACwAAAAZACkAAABtACoAAAAaACcAAABtACsAAAAaACgAAABtACwAAAAaACkAAABtAC0AAAAaACoAAABtAC4AAAAaACsAAABtAC8AAAAaACwAAABuACoAAAAbACcAAABuACsAAAAbACgAAABuACwAAAAbACkAAABuAC0AAAAbACoAAABuAC4AAAAbACsAAABuAC8AAAAbACwAAABvACoAAAAcACcAAABvACsAAAAcACgAAABvACwAAAAcACkAAABvAC0AAAAcACoAAABvAC4AAAAcACsAAABvAC8AAAAcACwAAABwACsAAAAdACgAAABwACwAAAAdACkAAAA=")
+tile_set = ExtResource("10_814k1")
+
 [node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("2_m8iu8")]
 position = Vector2(19, 151)
 
@@ -48,12 +58,13 @@ position = Vector2(122, 149)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cushion" unique_id=714417160]
 shape = SubResource("CircleShape2D_lmpqx")
 
-[node name="OutsideArrow" type="TileMapLayer" parent="." unique_id=1526433461]
-scale = Vector2(0.125, 0.125)
-tile_map_data = PackedByteArray("AABmAE0AAAAYACEAAABmAE4AAAAYACIAAABmAE8AAAAYACMAAABnAE0AAAAZACEAAABnAE4AAAAZACIAAABnAE8AAAAZACMAAABoAE0AAAAaACEAAABoAE4AAAAaACIAAABoAE8AAAAaACMAAABpAEwAAAAbACAAAABpAE0AAAAbACEAAABpAE4AAAAbACIAAABpAE8AAAAbACMAAABpAFAAAAAbACQAAABqAEwAAAAcACAAAABqAE0AAAAcACEAAABqAE4AAAAcACIAAABqAE8AAAAcACMAAABqAFAAAAAcACQAAABrAEwAAAAdACAAAABrAE0AAAAdACEAAABrAE4AAAAdACIAAABrAE8AAAAdACMAAABrAFAAAAAdACQAAABsAE0AAAAeACEAAABsAE4AAAAeACIAAABsAE8AAAAeACMAAAA=")
-tile_set = ExtResource("10_814k1")
+[node name="Rhythm" parent="." unique_id=1522057593 instance=ExtResource("11_22t80")]
 
-[node name="UpArrow" type="TileMapLayer" parent="." unique_id=1141100666]
-scale = Vector2(0.125, 0.125)
-tile_map_data = PackedByteArray("AABsACsAAAAZACgAAABsACwAAAAZACkAAABtACoAAAAaACcAAABtACsAAAAaACgAAABtACwAAAAaACkAAABtAC0AAAAaACoAAABtAC4AAAAaACsAAABtAC8AAAAaACwAAABuACoAAAAbACcAAABuACsAAAAbACgAAABuACwAAAAbACkAAABuAC0AAAAbACoAAABuAC4AAAAbACsAAABuAC8AAAAbACwAAABvACoAAAAcACcAAABvACsAAAAcACgAAABvACwAAAAcACkAAABvAC0AAAAcACoAAABvAC4AAAAcACsAAABvAC8AAAAcACwAAABwACsAAAAdACgAAABwACwAAAAdACkAAAA=")
-tile_set = ExtResource("10_814k1")
+[node name="ChangeScene" type="Area2D" parent="." unique_id=403941793]
+position = Vector2(219, 2)
+script = ExtResource("12_lupnh")
+target_scene = "uid://dgnejlxj37cdo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene" unique_id=469110761]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7ylwt")

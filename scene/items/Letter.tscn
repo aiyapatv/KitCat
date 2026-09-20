@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://6jgu3yjp1nib"]
+
+[ext_resource type="Texture2D" uid="uid://ojekciqw4eec" path="res://resource/letter_x8.png" id="1_q8f1g"]
+[ext_resource type="FontFile" uid="uid://csx2eace56qc1" path="res://resource/Minecraftia-Regular.ttf" id="2_q8f1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n07d3"]
+line_spacing = 1.0
+paragraph_spacing = -2.0
+font = ExtResource("2_q8f1g")
+font_size = 4
+font_color = Color(0.6862745, 0.45882353, 0.31764707, 1)
+shadow_size = 0
+
+[node name="Letter" type="CanvasLayer" unique_id=318190489]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1908226109]
+position = Vector2(80, 72)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_q8f1g")
+
+[node name="Label" type="Label" parent="." unique_id=1613251941]
+offset_left = 26.0
+offset_top = 26.0
+offset_right = 135.0
+offset_bottom = 425.0
+text = "
+
+"
+label_settings = SubResource("LabelSettings_n07d3")
+autowrap_mode = 3
+autowrap_trim_flags = 0
+metadata/_edit_use_anchors_ = true

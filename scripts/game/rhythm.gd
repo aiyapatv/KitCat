@@ -1,9 +1,13 @@
 extends Control
 
+signal completed
+signal failed
+
 @export_category("Game Settings")
 @export var rounds: int = 3
 @export var characters_per_round: int = 5
 @export var time_limit: float = 3.0
+@export var cooldown_duration: float = 1.5
 
 @export_category("Character")
 @export var character_scene: PackedScene
@@ -17,11 +21,16 @@ extends Control
 	"ArrowRight"
 	]
 
+@export_category("Bar Colors")
+@export var color_normal: Color = Color("fec66cff")
+@export var color_cooldown: Color = Color("fc9343ff")
+@export var color_complete: Color = Color("89b88aff")
+@export var color_failed: Color = Color("af7551ff")
+
 @onready var sequence: Node2D = $Sequence
-@onready var progress_label: Label = $ProgressLabel
-@onready var timer_label: Label = $TimerLabel
-@onready var countdown_label: Label = $CountdownLabel
+@onready var timer_bar: ProgressBar = $TimerBar
 @onready var timer: Timer = $Timer
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var current_round := 0
 var current_sequence: Array[String] = []
@@ -30,21 +39,39 @@ var current_index := 0
 var character_slots: Array[ReactionCharacter] = []
 
 var game_active := false
+var is_in_cooldown := false
+
+var fill_stylebox: StyleBoxFlat
+var bg_stylebox: StyleBoxFlat
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 
-	countdown_label.hide()
+	bg_stylebox = StyleBoxFlat.new()
+	bg_stylebox.bg_color = Color(0, 0, 0, 0)
+	bg_stylebox.shadow_size = 0
+	bg_stylebox.shadow_color = Color(0, 0, 0, 0)
+	bg_stylebox.set_corner_radius_all(8)
 
-	start_game()
+	fill_stylebox = StyleBoxFlat.new()
+	fill_stylebox.bg_color = color_normal
+	fill_stylebox.shadow_size = 0
+	fill_stylebox.shadow_color = Color(0, 0, 0, 0)
+	fill_stylebox.set_corner_radius_all(8)
+
+	if is_instance_valid(timer_bar):
+		timer_bar.show_percentage = false
+		timer_bar.add_theme_stylebox_override("background", bg_stylebox)
+		timer_bar.add_theme_stylebox_override("fill", fill_stylebox)
+		timer_bar.value = 0.0
 
 func _process(_delta):
-	if game_active:
-		timer_label.text = "%d" % ceil(timer.time_left)
-	else:
-		timer_label.text = ""
+	if game_active and not is_in_cooldown:
+		if time_limit > 0:
+			timer_bar.value = (timer.time_left / time_limit) * 100.0
 
 func start_game():
+	audio.play()
 	current_round = 0
 	start_round()
 
@@ -65,22 +92,22 @@ func start_round():
 	create_character_slots()
 	update_display()
 
-	await countdown()
+	await cooldown()
 
-func countdown():
-	countdown_label.show()
+func cooldown():
+	is_in_cooldown = true
+	fill_stylebox.bg_color = color_cooldown
+	timer_bar.value = 0.0
 
-	for number in [3, 2, 1]:
-		countdown_label.text = str(number)
-		await get_tree().create_timer(1.0).timeout
+	var tween := create_tween()
+	tween.tween_property(timer_bar, "value", 100.0, cooldown_duration)\
+		.set_trans(Tween.TRANS_LINEAR)\
+		.set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
 
-	countdown_label.text = "GO!"
+	is_in_cooldown = false
+	fill_stylebox.bg_color = color_normal
 
-	await get_tree().create_timer(0.4).timeout
-
-	countdown_label.hide()
-
-	# Start the round
 	game_active = true
 
 	timer.wait_time = time_limit
@@ -116,7 +143,7 @@ func create_character_slots():
 		character_slots.append(character)
 
 func _input(event):
-	if not game_active:
+	if not game_active or is_in_cooldown:
 		return
 
 	if not event.is_pressed():
@@ -174,6 +201,9 @@ func complete_round():
 	game_active = false
 	timer.stop()
 
+	fill_stylebox.bg_color = color_complete
+	timer_bar.value = 100.0
+
 	await get_tree().create_timer(0.5).timeout
 
 	start_round()
@@ -183,25 +213,29 @@ func _on_timer_timeout():
 
 func game_over():
 	game_active = false
+	is_in_cooldown = false
 	timer.stop()
 
-	countdown_label.show()
-	countdown_label.text = "FAILED!"
-
-	timer_label.text = ""
+	fill_stylebox.bg_color = color_failed
+	timer_bar.value = 100.0
+	audio.stop()
 
 	await get_tree().create_timer(1.5).timeout
 
-	countdown_label.hide()
+	failed.emit()
 
 func finish_game():
 	game_active = false
+	is_in_cooldown = false
 	timer.stop()
 
-	countdown_label.show()
-	countdown_label.text = "COMPLETE!"
+	fill_stylebox.bg_color = color_complete
+	timer_bar.value = 100.0
+	audio.stop()
 
-	timer_label.text = ""
+	await get_tree().create_timer(1.5).timeout
+
+	completed.emit()
 
 func update_display():
 	for i in character_slots.size():
@@ -214,8 +248,3 @@ func update_display():
 			character_slots[i].set_complete(character_key)
 		else:
 			character_slots[i].setup(character_key)
-
-	progress_label.text = "Round %d / %d" % [
-		current_round,
-		rounds
-	]

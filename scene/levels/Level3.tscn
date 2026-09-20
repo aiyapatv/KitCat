@@ -1,3 +1,53 @@
-[gd_scene format=3 uid="uid://bjtnu2y2ri83s"]
+[gd_scene format=3 uid="uid://dgnejlxj37cdo"]
 
-[node name="Level3" type="Node2D" unique_id=1034931508]
+[ext_resource type="Script" uid="uid://y412runu7jks" path="res://scene/levels/level_3.gd" id="1_l3script"]
+[ext_resource type="PackedScene" uid="uid://ctutmvum3rtv1" path="res://scene/maps/SecondFloor.tscn" id="1_vmny3"]
+[ext_resource type="PackedScene" uid="uid://cec7t1s02uxuf" path="res://scene/tools/CameraBounds.tscn" id="2_5bde5"]
+[ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="2_u5xod"]
+[ext_resource type="PackedScene" uid="uid://cqt0b6wvtdfs3" path="res://scene/items/ArrowDown.tscn" id="3_1jxrg"]
+[ext_resource type="Texture2D" uid="uid://cdbfamu1lxxvr" path="res://resource/2ndFloor_x8_handle.png" id="3_u5xod"]
+[ext_resource type="Script" uid="uid://geurodyeivvp" path="res://scene/tools/change-scene.gd" id="6_0ti1s"]
+[ext_resource type="AudioStream" uid="uid://yh2yau11kee8" path="res://resource/Theme Song.mp3" id="8_5bde5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(35, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbuby"]
+size = Vector2(47, 21)
+
+[node name="Level3" type="Node2D" unique_id=1590306307]
+script = ExtResource("1_l3script")
+
+[node name="CameraBounds" parent="." unique_id=1952891714 instance=ExtResource("2_5bde5")]
+position = Vector2(361, 286)
+right = 240
+bottom = 208
+
+[node name="SecondFloor" parent="." unique_id=307664555 instance=ExtResource("1_vmny3")]
+
+[node name="ArrowDown" parent="." unique_id=1471509388 instance=ExtResource("3_1jxrg")]
+position = Vector2(175, 141)
+
+[node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("2_u5xod")]
+position = Vector2(177, 185)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=32775140]
+position = Vector2(120, 104)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_u5xod")
+
+[node name="Key" type="Area2D" parent="." unique_id=746697988]
+position = Vector2(67.68963, 81.08738)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=138965419]
+position = Vector2(1.3103714, 0.91262054)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="ChangeScene" type="Area2D" parent="." unique_id=27566382]
+position = Vector2(239, 137)
+script = ExtResource("6_0ti1s")
+target_scene = "uid://crfe01tkcs4ij"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene" unique_id=1732381616]
+position = Vector2(-59.5, 70)
+shape = SubResource("RectangleShape2D_xbuby")

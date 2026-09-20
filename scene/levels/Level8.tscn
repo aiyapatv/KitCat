@@ -1,0 +1,161 @@
+[gd_scene format=4 uid="uid://bqxuyh8orqekp"]
+
+[ext_resource type="Script" uid="uid://dbbyx8qy2741t" path="res://scene/levels/level_8.gd" id="1_cffvq"]
+[ext_resource type="Texture2D" uid="uid://bak6x62xw4ip2" path="res://resource/Map_Bedroom_x8.png" id="1_fw0x3"]
+[ext_resource type="PackedScene" uid="uid://cec7t1s02uxuf" path="res://scene/tools/CameraBounds.tscn" id="1_gg6cv"]
+[ext_resource type="Texture2D" uid="uid://dtq5r0yxpyqwf" path="res://resource/Desk.png" id="4_xois0"]
+[ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="4_xtbvv"]
+[ext_resource type="TileSet" uid="uid://ddascllbvt41e" path="res://tileset/key2.tres" id="5_wl02n"]
+[ext_resource type="Texture2D" uid="uid://ojekciqw4eec" path="res://resource/letter_x8.png" id="7_7x1dt"]
+[ext_resource type="FontFile" uid="uid://csx2eace56qc1" path="res://resource/Minecraftia-Regular.ttf" id="8_u6c0f"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xtbvv"]
+b = Vector2(0, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xois0"]
+a = Vector2(240, 0)
+b = Vector2(240, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wl02n"]
+a = Vector2(0, 208)
+b = Vector2(240, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7x1dt"]
+b = Vector2(240, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(57, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+size = Vector2(240, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm1bc"]
+size = Vector2(63, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwqyf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 8.062258
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5dob"]
+line_spacing = 1.0
+paragraph_spacing = -2.0
+font = ExtResource("8_u6c0f")
+font_size = 4
+font_color = Color(0.6862745, 0.45882353, 0.31764707, 1)
+shadow_size = 0
+
+[node name="Level8" type="Node2D" unique_id=2096386596]
+script = ExtResource("1_cffvq")
+
+[node name="CameraBounds" parent="." unique_id=1952891714 instance=ExtResource("1_gg6cv")]
+position = Vector2(361, 286)
+right = 240
+bottom = 208
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997260910]
+position = Vector2(120, 104)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_fw0x3")
+
+[node name="CabinetSprite" type="Sprite2D" parent="." unique_id=236195019]
+visible = false
+position = Vector2(40, 64)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_xois0")
+
+[node name="Letter" type="TileMapLayer" parent="." unique_id=890752440]
+position = Vector2(122, 78)
+scale = Vector2(0.125, 0.125)
+tile_map_data = PackedByteArray("AADX/xEAAAAIACsAAADX/xIAAAAIACwAAADY/xAAAAAJACoAAADY/xEAAAAJACsAAADY/xIAAAAJACwAAADY/xMAAAAJAC0AAADZ/w8AAAAKACkAAADZ/xAAAAAKACoAAADZ/xEAAAAKACsAAADZ/xIAAAAKACwAAADZ/xMAAAAKAC0AAADZ/xQAAAAKAC4AAADa/w8AAAALACkAAADa/xAAAAALACoAAADa/xEAAAALACsAAADa/xIAAAALACwAAADa/xMAAAALAC0AAADa/xQAAAALAC4AAADa/xUAAAALAC8AAADb/w8AAAAMACkAAADb/xAAAAAMACoAAADb/xEAAAAMACsAAADb/xIAAAAMACwAAADb/xMAAAAMAC0AAADb/xQAAAAMAC4AAADb/xUAAAAMAC8AAADc/xAAAAANACoAAADc/xEAAAANACsAAADc/xIAAAANACwAAADc/xMAAAANAC0AAADc/xQAAAANAC4AAADc/xUAAAANAC8AAADc/xYAAAANADAAAADd/xEAAAAOACsAAADd/xIAAAAOACwAAADd/xMAAAAOAC0AAADd/xQAAAAOAC4AAADd/xUAAAAOAC8AAADe/xEAAAAPACsAAADe/xIAAAAPACwAAADe/xMAAAAPAC0AAADe/xQAAAAPAC4AAADf/xIAAAAQACwAAADf/xMAAAAQAC0AAAA=")
+tile_set = ExtResource("5_wl02n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=897980827]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=874295418]
+shape = SubResource("SegmentShape2D_xtbvv")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1957754676]
+shape = SubResource("SegmentShape2D_xois0")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1187214172]
+shape = SubResource("SegmentShape2D_wl02n")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1432855642]
+shape = SubResource("SegmentShape2D_7x1dt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1326213980]
+position = Vector2(40.5, 71)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1903895638]
+position = Vector2(120, 31.5)
+shape = SubResource("RectangleShape2D_mti6b")
+
+[node name="Cabinet" type="Area2D" parent="." unique_id=191498711]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet" unique_id=1200739576]
+position = Vector2(40.5, 75.5)
+shape = SubResource("RectangleShape2D_mm1bc")
+
+[node name="Letter3" type="Area2D" parent="." unique_id=1676120589]
+position = Vector2(7, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letter3" unique_id=1265845607]
+position = Vector2(42, 76)
+shape = SubResource("RectangleShape2D_qwqyf")
+
+[node name="Grandma" type="Area2D" parent="." unique_id=119481370]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grandma" unique_id=922623896]
+position = Vector2(122, 78)
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("4_xtbvv")]
+position = Vector2(42, 194)
+
+[node name="Letter2" type="CanvasLayer" parent="." unique_id=1605405574]
+
+[node name="Sprite2D" type="Sprite2D" parent="Letter2" unique_id=1555992118]
+position = Vector2(80, 72)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("7_7x1dt")
+
+[node name="Label" type="Label" parent="Letter2" unique_id=769496195]
+offset_left = 26.0
+offset_top = 26.0
+offset_right = 135.0
+offset_bottom = 425.0
+text = "My dear daughter,
+
+I don’t know why, but I felt like writing you a letter today. Perhaps… somewhere in my heart, I know that my time is coming soon.
+
+The little one is doing well, as always. He ate until his belly was round, then curled up and fell fast asleep.
+
+I love him so much.
+
+And I’m sorry that I have to leave before he does.
+
+Though, to him, I suppose I’m just another human. Haha…
+ Still, I have one last favor to ask of you.
+Please take care of my little cat for me.
+
+He still loves that little ball of his, and I swear he could play with that wind-up mouse forever. When he's tired, you'll find him curled up on the green cushion, as always.
+
+And when you go outside to water the plants, don't forget to let him follow you out. He loves lying in the sunlight, even if he pretends he's too busy to enjoy it.
+
+Scratch his chin. Rub his belly. He may pretend he doesn’t care, but just wait. He’ll come looking for you soon enough.
+
+If I could, I would thank that little boy one more time.
+For all these years, he kept this old woman from feeling quite so lonely.
+
+So, my dear daughter…
+Please take care of my precious little companion.
+And when he comes curling up beside you, don’t push him away.
+Let him stay.
+Maybe then, for a little while longer, you won’t feel quite so alone either.
+Love, Mom "
+label_settings = SubResource("LabelSettings_f5dob")
+autowrap_mode = 3
+autowrap_trim_flags = 0
+metadata/_edit_use_anchors_ = true

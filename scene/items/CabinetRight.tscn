@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dkxsnj3sadfo2"]
 
 [ext_resource type="Script" uid="uid://dtpikihwlfucy" path="res://scripts/items/cabinet.gd" id="1_elgbf"]
-[ext_resource type="Texture2D" uid="uid://dd1r2nt1h6tcp" path="res://resource/Kitchen_AssetSheet.png" id="1_xpm1v"]
+[ext_resource type="Texture2D" uid="uid://0e68poa1ukqn" path="res://resource/Kitchen_AssetSheet.png" id="1_xpm1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elgbf"]
 texture = ExtResource("1_xpm1v")
@@ -12631,5 +12631,5 @@ tile_map_data = PackedByteArray("AAAAAAgAAABEAAIAAAAAAAkAAABEAAMAAAAAAAoAAABEAAQ
 tile_set = SubResource("TileSet_q4lci")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=908990584]
-position = Vector2(16, 27.75)
+position = Vector2(16, 26.75)
 shape = SubResource("RectangleShape2D_elgbf")

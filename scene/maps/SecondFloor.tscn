@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctutmvum3rtv1"]
 
-[ext_resource type="Texture2D" uid="uid://chjlf865vbfv7" path="res://resource/2ndFloor_x1.png" id="1_34ku7"]
+[ext_resource type="Texture2D" uid="uid://d4ghq2u16fsts" path="res://resource/2ndFloor_x8.png" id="1_34ku7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
 size = Vector2(258, 100)
@@ -16,6 +16,7 @@ size = Vector2(39, 55.5)
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1574814032]
 offset_right = 240.0
 offset_bottom = 208.0
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_34ku7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=445263869]

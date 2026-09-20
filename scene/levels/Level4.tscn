@@ -1,0 +1,61 @@
+[gd_scene format=4 uid="uid://crfe01tkcs4ij"]
+
+[ext_resource type="PackedScene" uid="uid://d05o72aqofbio" path="res://scene/maps/LivingRoom.tscn" id="1_drq6d"]
+[ext_resource type="PackedScene" uid="uid://cec7t1s02uxuf" path="res://scene/tools/CameraBounds.tscn" id="1_l0ibw"]
+[ext_resource type="Script" uid="uid://detb66yumgoge" path="res://scene/levels/level_4.gd" id="1_pwch5"]
+[ext_resource type="TileSet" uid="uid://dja6xc8eercm2" path="res://tileset/key.tres" id="2_1inma"]
+[ext_resource type="Script" uid="uid://geurodyeivvp" path="res://scene/tools/change-scene.gd" id="3_1inma"]
+[ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="3_8x58s"]
+[ext_resource type="PackedScene" uid="uid://48knppr70eyi" path="res://scene/items/Ball.tscn" id="6_o0vov"]
+[ext_resource type="PackedScene" uid="uid://dfash7jkbljrg" path="res://scene/items/Mice.tscn" id="7_pwch5"]
+[ext_resource type="PackedScene" uid="uid://bebr46dsoi3r8" path="res://scene/items/Toy.tscn" id="8_teuqg"]
+[ext_resource type="PackedScene" uid="uid://cwb38li0jgntf" path="res://scene/items/Yarn.tscn" id="9_rd6bu"]
+[ext_resource type="PackedScene" uid="uid://bfsy0eu1kndfq" path="res://scene/items/Amulet.tscn" id="10_m51sh"]
+[ext_resource type="AudioStream" uid="uid://yh2yau11kee8" path="res://resource/Theme Song.mp3" id="12_teuqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x58s"]
+size = Vector2(34, 21)
+
+[node name="Level4" type="Node2D" unique_id=1315625862]
+script = ExtResource("1_pwch5")
+
+[node name="CameraBounds" parent="." unique_id=1952891714 instance=ExtResource("1_l0ibw")]
+position = Vector2(122, 149)
+right = 240
+bottom = 208
+
+[node name="LivingRoom" parent="." unique_id=2006314554 instance=ExtResource("1_drq6d")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=857008861]
+
+[node name="OutsideArrow" type="TileMapLayer" parent="." unique_id=19306833]
+scale = Vector2(0.125, 0.125)
+tile_map_data = PackedByteArray("AABmAE0AAAAYACEAAABmAE4AAAAYACIAAABmAE8AAAAYACMAAABnAE0AAAAZACEAAABnAE4AAAAZACIAAABnAE8AAAAZACMAAABoAE0AAAAaACEAAABoAE4AAAAaACIAAABoAE8AAAAaACMAAABpAEwAAAAbACAAAABpAE0AAAAbACEAAABpAE4AAAAbACIAAABpAE8AAAAbACMAAABpAFAAAAAbACQAAABqAEwAAAAcACAAAABqAE0AAAAcACEAAABqAE4AAAAcACIAAABqAE8AAAAcACMAAABqAFAAAAAcACQAAABrAEwAAAAdACAAAABrAE0AAAAdACEAAABrAE4AAAAdACIAAABrAE8AAAAdACMAAABrAFAAAAAdACQAAABsAE0AAAAeACEAAABsAE4AAAAeACIAAABsAE8AAAAeACMAAAA=")
+tile_set = ExtResource("2_1inma")
+
+[node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("3_8x58s")]
+position = Vector2(217, 22)
+
+[node name="ChangeScene" type="Area2D" parent="." unique_id=1231944043]
+position = Vector2(239, 137)
+script = ExtResource("3_1inma")
+target_scene = "uid://bjtnu2y2ri83s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene" unique_id=728091815]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_8x58s")
+
+[node name="Ball" parent="." unique_id=1270759813 instance=ExtResource("6_o0vov")]
+position = Vector2(122, 161)
+
+[node name="Mice" parent="." unique_id=572641734 instance=ExtResource("7_pwch5")]
+position = Vector2(104, 154)
+
+[node name="Toy" parent="." unique_id=2086885547 instance=ExtResource("8_teuqg")]
+position = Vector2(138, 153)
+
+[node name="Yarn" parent="." unique_id=214589822 instance=ExtResource("9_rd6bu")]
+position = Vector2(131, 134)
+
+[node name="Amulet" parent="." unique_id=874072582 instance=ExtResource("10_m51sh")]
+position = Vector2(111, 137)

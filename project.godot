@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="KitCat"
-run/main_scene="uid://d4cpu47rx2a7u"
+run/main_scene="uid://rixonjursi77"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://scripts/scene_manager.gd"
 Dialog="*res://scene/tools/Dialog.tscn"
+AudioManager="*res://scripts/audio_manager.gd"
 
 [display]
 

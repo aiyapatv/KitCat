@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var chatbox: Chatbox = $Chatbox
 
 func _ready():
 	animated_sprite.animation_finished.connect(_on_animation_finished)
@@ -60,3 +61,11 @@ func _on_animation_finished():
 	if animated_sprite.animation == "hit":
 		animated_sprite.flip_h = false
 		animated_sprite.play("idle")
+
+func show_chat_emoji(emoji, duration: float = 0.0) -> void:
+	if chatbox:
+		chatbox.show_emoji(emoji, duration)
+
+func hide_chat_emoji() -> void:
+	if chatbox:
+		chatbox.hide_chatbox()

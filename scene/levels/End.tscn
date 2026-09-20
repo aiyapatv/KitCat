@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://k5xbma5g7o2i"]
+
+[ext_resource type="Script" uid="uid://dhllmi40in25w" path="res://scene/levels/end.gd" id="1_3yobl"]
+[ext_resource type="Texture2D" uid="uid://bak6x62xw4ip2" path="res://resource/Map_Bedroom_x8.png" id="1_7gvfd"]
+[ext_resource type="Texture2D" uid="uid://bgescmotw6cnn" path="res://resource/OrangeCat_Sleep_x8.png" id="2_pl38g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brvut"]
+atlas = ExtResource("2_pl38g")
+region = Rect2(0, 0, 184, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ha60"]
+atlas = ExtResource("2_pl38g")
+region = Rect2(184, 0, 184, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yobl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brvut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ha60")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="End" type="Node2D" unique_id=1530107291]
+script = ExtResource("1_3yobl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106320676]
+position = Vector2(80, 84)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_7gvfd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1144113186]
+position = Vector2(81, 62)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_3yobl")
+frame_progress = 0.29379752
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=761730640]
+offset_left = -54.0
+offset_top = -35.0
+offset_right = 207.0
+offset_bottom = 212.0
+color = Color(0, 0, 0, 1)

@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c6ipap82ef3ci" path="res://scripts/game/rhythm.gd" id="1_0qoym"]
 [ext_resource type="PackedScene" uid="uid://cfqgvauxuhupt" path="res://scene/items/ArrowSet.tscn" id="2_u1ipr"]
+[ext_resource type="Texture2D" uid="uid://cq8w33ypwr87l" path="res://resource/textbox_x8.png" id="3_10mkb"]
+[ext_resource type="AudioStream" uid="uid://dj5jh821s1kjo" path="res://resource/Event Excited.mp3" id="4_q83rl"]
 
-[node name="Rhythm" type="Control" unique_id=172691548]
+[node name="Rhythm" type="CanvasLayer" unique_id=1522057593]
+
+[node name="Rhythm" type="Control" parent="." unique_id=172691548]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 39.0
@@ -11,26 +15,27 @@ offset_top = 38.0
 offset_right = 39.0
 offset_bottom = 38.0
 script = ExtResource("1_0qoym")
+characters_per_round = 6
 time_limit = 10.0
 character_scene = ExtResource("2_u1ipr")
 
-[node name="TimerLabel" type="Label" parent="." unique_id=385811249]
+[node name="Sprite2D" type="Sprite2D" parent="Rhythm" unique_id=1920790544]
+position = Vector2(41, 34)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_10mkb")
+
+[node name="TimerBar" type="ProgressBar" parent="Rhythm" unique_id=385811249]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -25.0
+offset_top = 58.0
+offset_right = 107.0
+offset_bottom = 72.0
+show_percentage = false
 
-[node name="ProgressLabel" type="Label" parent="." unique_id=373571539]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 40.0
-offset_bottom = 34.0
+[node name="Sequence" type="Node2D" parent="Rhythm" unique_id=1975309609]
+position = Vector2(-16, 81)
 
-[node name="Sequence" type="Node2D" parent="." unique_id=1975309609]
-position = Vector2(-4, 0)
+[node name="Timer" type="Timer" parent="Rhythm" unique_id=659452214]
 
-[node name="CountdownLabel" type="Label" parent="." unique_id=70814297]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Timer" type="Timer" parent="." unique_id=659452214]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Rhythm" unique_id=51983589]
+stream = ExtResource("4_q83rl")

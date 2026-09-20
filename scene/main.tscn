@@ -1,7 +1,30 @@
 [gd_scene format=3 uid="uid://rixonjursi77"]
 
 [ext_resource type="Script" uid="uid://cpg6rnjo863mb" path="res://scene/main.gd" id="1_itxqv"]
-[ext_resource type="Texture2D" uid="uid://bl1h5apuwq2ue" path="res://resource/StartScreen_x8.png" id="2_v0l8b"]
+[ext_resource type="Texture2D" uid="uid://b1toxi225rva6" path="res://resource/StartScreen_x8.png" id="2_v0l8b"]
+[ext_resource type="Texture2D" uid="uid://bgescmotw6cnn" path="res://resource/OrangeCat_Sleep_x8.png" id="3_wp4xf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brvut"]
+atlas = ExtResource("3_wp4xf")
+region = Rect2(0, 0, 184, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ha60"]
+atlas = ExtResource("3_wp4xf")
+region = Rect2(184, 0, 184, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mti6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brvut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ha60")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Main" type="Node2D" unique_id=1033843815]
 script = ExtResource("1_itxqv")
@@ -11,3 +34,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_v0l8b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713218445]
+position = Vector2(78, 101)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_mti6b")
+frame_progress = 0.13521156

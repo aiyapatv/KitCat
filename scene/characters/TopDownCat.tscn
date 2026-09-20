@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://by8bdh67icss2"]
 
 [ext_resource type="Script" uid="uid://dtilalphpaq1y" path="res://scripts/character/top_down_cat.gd" id="1_drqgm"]
-[ext_resource type="Texture2D" uid="uid://b6om31x33n4mj" path="res://resource/OrangeCat_Hit_x8.png" id="2_g2gac"]
-[ext_resource type="Texture2D" uid="uid://s8p563xokwsg" path="res://resource/OrangeCat_IdleWalk_x8.png" id="3_fjo7w"]
+[ext_resource type="Texture2D" uid="uid://bvqhwmkm3vgjo" path="res://resource/OrangeCat_Hit_x8.png" id="2_g2gac"]
+[ext_resource type="Texture2D" uid="uid://db4o3njdqmhh5" path="res://resource/OrangeCat_IdleWalk_x8.png" id="3_fjo7w"]
+[ext_resource type="PackedScene" uid="uid://t7yqahgx23v0" path="res://scene/tools/Chatbox.tscn" id="4_fjo7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14cdr"]
 size = Vector2(13, 8)
@@ -120,3 +121,6 @@ animation = &"hit"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1352331382]
 position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_htemk")
+
+[node name="Chatbox" parent="." unique_id=795438898 instance=ExtResource("4_fjo7w")]
+position = Vector2(13, -20)
