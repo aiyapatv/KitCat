@@ -8,7 +8,7 @@ func _ready() -> void:
 	bgm_player.name = "BGMPlayer"
 	add_child(bgm_player)
 
-func play_bgm(stream: AudioStream) -> void:
+func play_bgm(stream: AudioStreamMP3) -> void:
 	if stream == null:
 		stop_bgm()
 		return
@@ -16,6 +16,7 @@ func play_bgm(stream: AudioStream) -> void:
 		return
 	bgm_player.stream = stream
 	bgm_player.stream_paused = false
+	stream.loop = true
 	bgm_player.play()
 
 func stop_bgm() -> void:
