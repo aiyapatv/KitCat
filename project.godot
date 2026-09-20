@@ -15,6 +15,11 @@ run/main_scene="uid://d4cpu47rx2a7u"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://scripts/scene_manager.gd"
+Dialog="*res://scene/tools/Dialog.tscn"
+
 [display]
 
 window/size/viewport_width=160

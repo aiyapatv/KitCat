@@ -1,10 +1,16 @@
-[gd_scene format=3 uid="uid://d4cpu47rx2a7u"]
+[gd_scene format=4 uid="uid://d4cpu47rx2a7u"]
 
 [ext_resource type="PackedScene" uid="uid://bfrh5x02cgppl" path="res://scene/maps/Kitchen.tscn" id="1_4w1oj"]
-[ext_resource type="Script" uid="uid://cgd4kfd3isfon" path="res://scene/levels/level_1.gd" id="1_qprrc"]
+[ext_resource type="Script" uid="uid://vn4lohidjgo2" path="res://scene/levels/level_1.gd" id="1_qprrc"]
 [ext_resource type="PackedScene" uid="uid://cec7t1s02uxuf" path="res://scene/tools/CameraBounds.tscn" id="2_qprrc"]
 [ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="3_coh3v"]
 [ext_resource type="PackedScene" uid="uid://c0of7w20pboww" path="res://scene/items/CabinetLeft.tscn" id="5_coh3v"]
+[ext_resource type="PackedScene" uid="uid://dkxsnj3sadfo2" path="res://scene/items/CabinetRight.tscn" id="5_qlhlb"]
+[ext_resource type="TileSet" uid="uid://dja6xc8eercm2" path="res://tileset/key.tres" id="7_qlhlb"]
+[ext_resource type="Script" uid="uid://geurodyeivvp" path="res://scene/tools/change-scene.gd" id="8_p4hvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(20, 126)
 
 [node name="Level1" type="Node2D" unique_id=404730695]
 script = ExtResource("1_qprrc")
@@ -18,5 +24,28 @@ bottom = 208
 [node name="Cabinet" parent="." unique_id=836106672 instance=ExtResource("5_coh3v")]
 position = Vector2(96, 72)
 
+[node name="Cabinet2" parent="." unique_id=119360710 instance=ExtResource("5_coh3v")]
+position = Vector2(0, 72)
+
+[node name="Cabinet3" parent="." unique_id=1493915335 instance=ExtResource("5_coh3v")]
+position = Vector2(128, 72)
+
+[node name="Cabinet4" parent="." unique_id=1638879883 instance=ExtResource("5_qlhlb")]
+position = Vector2(64, 72)
+
 [node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("3_coh3v")]
-position = Vector2(29, 165)
+position = Vector2(23, 185)
+
+[node name="OutsideArrow" type="TileMapLayer" parent="." unique_id=426753555]
+scale = Vector2(0.125, 0.125)
+tile_map_data = PackedByteArray("AABsAEAAAAAYACEAAABsAEEAAAAYACIAAABsAEIAAAAYACMAAABtAEAAAAAZACEAAABtAEEAAAAZACIAAABtAEIAAAAZACMAAABuAEAAAAAaACEAAABuAEEAAAAaACIAAABuAEIAAAAaACMAAABvAD8AAAAbACAAAABvAEAAAAAbACEAAABvAEEAAAAbACIAAABvAEIAAAAbACMAAABvAEMAAAAbACQAAABwAD8AAAAcACAAAABwAEAAAAAcACEAAABwAEEAAAAcACIAAABwAEIAAAAcACMAAABwAEMAAAAcACQAAABxAD8AAAAdACAAAABxAEAAAAAdACEAAABxAEEAAAAdACIAAABxAEIAAAAdACMAAABxAEMAAAAdACQAAAByAEAAAAAeACEAAAByAEEAAAAeACIAAAByAEIAAAAeACMAAAA=")
+tile_set = ExtResource("7_qlhlb")
+
+[node name="ChangeScene" type="Area2D" parent="." unique_id=927406213]
+position = Vector2(239, 137)
+script = ExtResource("8_p4hvq")
+target_scene = "uid://dguxa38bwr7yx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene" unique_id=1573674707]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_htemk")

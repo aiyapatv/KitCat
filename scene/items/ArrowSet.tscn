@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cfqgvauxuhupt"]
+
+[ext_resource type="Script" uid="uid://b2v04px6uhye7" path="res://scene/items/arrow_set.gd" id="1_ck2it"]
+[ext_resource type="PackedScene" uid="uid://cqt0b6wvtdfs3" path="res://scene/items/ArrowDown.tscn" id="2_c5ega"]
+[ext_resource type="PackedScene" uid="uid://dki5vvl11tgoe" path="res://scene/items/ArrowLeft.tscn" id="3_shtq7"]
+[ext_resource type="PackedScene" uid="uid://canlpwnyswcy3" path="res://scene/items/ArrowRight.tscn" id="4_lamrr"]
+[ext_resource type="PackedScene" uid="uid://de2o68hc3ypl7" path="res://scene/items/ArrowUp.tscn" id="5_hhurb"]
+
+[node name="ArrowSet" type="Node2D" unique_id=960532244]
+script = ExtResource("1_ck2it")
+
+[node name="ArrowDown" parent="." unique_id=1471509388 instance=ExtResource("2_c5ega")]
+
+[node name="ArrowLeft" parent="." unique_id=895350911 instance=ExtResource("3_shtq7")]
+
+[node name="ArrowRight" parent="." unique_id=1621177359 instance=ExtResource("4_lamrr")]
+
+[node name="ArrowUp" parent="." unique_id=1942427429 instance=ExtResource("5_hhurb")]

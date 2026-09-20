@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://coy5jjsq80040"]
+[gd_scene format=3 uid="uid://bilsggxilrule"]
 
-[ext_resource type="Texture2D" uid="uid://0b0hdljdddsk" path="res://picture/almostfinished.png" id="1_0s07d"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_isivl"]
+load_path = "res://.godot/imported/almostfinished.png-693af352846d1029c15c69dc63210e68.ctex"
 
 [node name="Test" type="Node2D" unique_id=291126942]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=972202946]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_0s07d")
+texture = SubResource("CompressedTexture2D_isivl")

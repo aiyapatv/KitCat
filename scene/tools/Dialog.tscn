@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cp6frrb8qmwag"]
+
+[ext_resource type="Texture2D" uid="uid://c4ql7nt6ynpir" path="res://resource/textbox_x8.png" id="1_10gfb"]
+[ext_resource type="Script" uid="uid://b3yyfymwwitk3" path="res://scene/tools/dialog.gd" id="1_xah65"]
+[ext_resource type="FontFile" uid="uid://bq7e54a3pdteb" path="res://resource/PokemonGb-RAeo.ttf" id="3_pkalq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_htemk"]
+line_spacing = 1.0
+paragraph_spacing = -10.0
+font = ExtResource("3_pkalq")
+font_size = 8
+font_color = Color(0.9882353, 0.5764706, 0.2627451, 1)
+shadow_size = 0
+
+[node name="Dialog" type="CanvasLayer" unique_id=1350556089]
+script = ExtResource("1_xah65")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=452606570]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_10gfb")
+
+[node name="Label" type="Label" parent="." unique_id=1008072054]
+offset_left = 10.0
+offset_top = 115.0
+offset_right = 149.0
+offset_bottom = 132.0
+label_settings = SubResource("LabelSettings_htemk")
+clip_text = true

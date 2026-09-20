@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfrh5x02cgppl"]
 
-[ext_resource type="Texture2D" uid="uid://djo688esa0jwt" path="res://picture/Kitchen_x8.png" id="1_1qmya"]
+[ext_resource type="Texture2D" uid="uid://djo688esa0jwt" path="res://resource/Kitchen_x8.png" id="1_1qmya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4lci"]
 size = Vector2(161, 112)

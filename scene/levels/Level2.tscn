@@ -1,0 +1,59 @@
+[gd_scene format=4 uid="uid://dguxa38bwr7yx"]
+
+[ext_resource type="PackedScene" uid="uid://d05o72aqofbio" path="res://scene/maps/LivingRoom.tscn" id="1_3qoud"]
+[ext_resource type="Script" uid="uid://cgd4kfd3isfon" path="res://scene/levels/level_2.gd" id="1_shnd0"]
+[ext_resource type="PackedScene" uid="uid://by8bdh67icss2" path="res://scene/characters/TopDownCat.tscn" id="2_m8iu8"]
+[ext_resource type="PackedScene" uid="uid://cec7t1s02uxuf" path="res://scene/tools/CameraBounds.tscn" id="3_7r1x7"]
+[ext_resource type="PackedScene" uid="uid://bfsy0eu1kndfq" path="res://scene/items/Amulet.tscn" id="3_814k1"]
+[ext_resource type="PackedScene" uid="uid://48knppr70eyi" path="res://scene/items/Ball.tscn" id="4_22t80"]
+[ext_resource type="PackedScene" uid="uid://dfash7jkbljrg" path="res://scene/items/Mice.tscn" id="5_lupnh"]
+[ext_resource type="PackedScene" uid="uid://bebr46dsoi3r8" path="res://scene/items/Toy.tscn" id="6_7ylwt"]
+[ext_resource type="PackedScene" uid="uid://cwb38li0jgntf" path="res://scene/items/Yarn.tscn" id="7_h3m3o"]
+[ext_resource type="TileSet" uid="uid://dja6xc8eercm2" path="res://tileset/key.tres" id="10_814k1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmpqx"]
+radius = 35.0
+
+[node name="Level2" type="Node2D" unique_id=373086184]
+script = ExtResource("1_shnd0")
+
+[node name="LivingRoom" parent="." unique_id=2006314554 instance=ExtResource("1_3qoud")]
+
+[node name="Amulet" parent="." unique_id=874072582 instance=ExtResource("3_814k1")]
+position = Vector2(45, 141)
+
+[node name="Ball" parent="." unique_id=1270759813 instance=ExtResource("4_22t80")]
+position = Vector2(173, 181)
+
+[node name="Mice" parent="." unique_id=572641734 instance=ExtResource("5_lupnh")]
+position = Vector2(64, 183)
+
+[node name="Toy" parent="." unique_id=2086885547 instance=ExtResource("6_7ylwt")]
+position = Vector2(187, 121)
+
+[node name="Yarn" parent="." unique_id=214589822 instance=ExtResource("7_h3m3o")]
+position = Vector2(80, 116)
+
+[node name="TopDownCat" parent="." unique_id=870438220 instance=ExtResource("2_m8iu8")]
+position = Vector2(19, 151)
+
+[node name="CameraBounds" parent="." unique_id=1952891714 instance=ExtResource("3_7r1x7")]
+position = Vector2(122, 149)
+right = 240
+bottom = 208
+
+[node name="Cushion" type="Area2D" parent="." unique_id=1354749723]
+position = Vector2(122, 149)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cushion" unique_id=714417160]
+shape = SubResource("CircleShape2D_lmpqx")
+
+[node name="OutsideArrow" type="TileMapLayer" parent="." unique_id=1526433461]
+scale = Vector2(0.125, 0.125)
+tile_map_data = PackedByteArray("AABmAE0AAAAYACEAAABmAE4AAAAYACIAAABmAE8AAAAYACMAAABnAE0AAAAZACEAAABnAE4AAAAZACIAAABnAE8AAAAZACMAAABoAE0AAAAaACEAAABoAE4AAAAaACIAAABoAE8AAAAaACMAAABpAEwAAAAbACAAAABpAE0AAAAbACEAAABpAE4AAAAbACIAAABpAE8AAAAbACMAAABpAFAAAAAbACQAAABqAEwAAAAcACAAAABqAE0AAAAcACEAAABqAE4AAAAcACIAAABqAE8AAAAcACMAAABqAFAAAAAcACQAAABrAEwAAAAdACAAAABrAE0AAAAdACEAAABrAE4AAAAdACIAAABrAE8AAAAdACMAAABrAFAAAAAdACQAAABsAE0AAAAeACEAAABsAE4AAAAeACIAAABsAE8AAAAeACMAAAA=")
+tile_set = ExtResource("10_814k1")
+
+[node name="UpArrow" type="TileMapLayer" parent="." unique_id=1141100666]
+scale = Vector2(0.125, 0.125)
+tile_map_data = PackedByteArray("AABsACsAAAAZACgAAABsACwAAAAZACkAAABtACoAAAAaACcAAABtACsAAAAaACgAAABtACwAAAAaACkAAABtAC0AAAAaACoAAABtAC4AAAAaACsAAABtAC8AAAAaACwAAABuACoAAAAbACcAAABuACsAAAAbACgAAABuACwAAAAbACkAAABuAC0AAAAbACoAAABuAC4AAAAbACsAAABuAC8AAAAbACwAAABvACoAAAAcACcAAABvACsAAAAcACgAAABvACwAAAAcACkAAABvAC0AAAAcACoAAABvAC4AAAAcACsAAABvAC8AAAAcACwAAABwACsAAAAdACgAAABwACwAAAAdACkAAAA=")
+tile_set = ExtResource("10_814k1")

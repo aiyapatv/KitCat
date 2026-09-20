@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d05o72aqofbio"]
+
+[ext_resource type="Texture2D" uid="uid://ctsg8xiy2yo87" path="res://resource/Map_Living_x1.png" id="1_ub3fb"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_65oxk"]
+b = Vector2(0, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kiesq"]
+a = Vector2(240, 0)
+b = Vector2(240, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pehar"]
+a = Vector2(0, 208)
+b = Vector2(240, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(160, 91)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_htemk"]
+b = Vector2(0, 80)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_14cdr"]
+b = Vector2(240, 1)
+
+[node name="LivingRoom" type="Node2D" unique_id=2006314554]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1875324853]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ub3fb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=625079254]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1875987327]
+shape = SubResource("SegmentShape2D_65oxk")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2108471330]
+shape = SubResource("SegmentShape2D_kiesq")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1287504077]
+shape = SubResource("SegmentShape2D_pehar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=125205093]
+position = Vector2(80, 45.5)
+shape = SubResource("RectangleShape2D_htemk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1615404589]
+position = Vector2(199, 0)
+shape = SubResource("SegmentShape2D_htemk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=372345682]
+shape = SubResource("SegmentShape2D_14cdr")

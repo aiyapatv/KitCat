@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
 @export var speed := 60.0
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
+
+func _ready():
+	animated_sprite.animation_finished.connect(_on_animation_finished)
+	animated_sprite.play("idle")
 
 func _physics_process(_delta):
 	handle_movement()
@@ -24,17 +29,34 @@ func handle_movement():
 
 	velocity = direction * speed
 
+
 func handle_animation():
+	if animated_sprite.animation == "hit":
+		return
+	
 	if velocity == Vector2.ZERO:
 		animated_sprite.stop()
 		return
-	animated_sprite.play()
+
+	animated_sprite.play("idle")
+
 	if velocity.x != 0:
 		animated_sprite.flip_h = velocity.x < 0
-		
+
 func handle_interaction():
-	if Input.is_action_just_pressed("action"):
-		var interactables = interaction_area.get_overlapping_areas()
-		
-		if interactables.size() > 0 and interactables[0].has_method("interact"):
-			interactables[0].interact()
+	if not Input.is_action_just_pressed("action"):
+		return
+	animated_sprite.flip_h = true
+	animated_sprite.play("hit")
+
+	var interactables = interaction_area.get_overlapping_areas()
+
+	for area in interactables:
+		if area.has_method("interact"):
+			area.interact(self)
+			break
+
+func _on_animation_finished():
+	if animated_sprite.animation == "hit":
+		animated_sprite.flip_h = false
+		animated_sprite.play("idle")

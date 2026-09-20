@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dmm8kco1bvr5x"]
+
+[ext_resource type="PackedScene" uid="uid://dgii0jkgo5cgi" path="res://scene/game/Rhythm.tscn" id="1_ys26a"]
+
+[node name="Level3Minigame" type="Node2D" unique_id=758200087]
+
+[node name="Rhythm" parent="." unique_id=172691548 instance=ExtResource("1_ys26a")]

@@ -5,6 +5,6 @@ extends Interactable
 func _ready() -> void:
 	door.visible = false
 
-func interact():
-	door.visible = !door.visible;
-	print(interaction_text)
+func interact(player: CharacterBody2D):
+	door.visible = !door.visible
+	super.interact(player)
